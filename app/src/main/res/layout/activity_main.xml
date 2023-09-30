@@ -10,54 +10,61 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="5dp"
         android:text="Nome da carta:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnBuscar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="9dp"
         android:onClick="pesquisar"
         android:text="Buscar"
-        app:layout_constraintBaseline_toBaselineOf="@+id/edCardName"
-        app:layout_constraintStart_toEndOf="@+id/edCardName" />
+        app:layout_constraintBottom_toTopOf="@+id/txtCardDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edCardName"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/edCardName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="11dp"
         android:ems="10"
         android:inputType="text"
         android:text="Dark Magician"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBuscar"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/btnBuscar" />
 
     <WebView
         android:id="@+id/wvCard"
         android:layout_width="0dp"
-        android:layout_height="377dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCardDetails" />
 
     <TextView
         android:id="@+id/txtCardDetails"
         android:layout_width="0dp"
-        android:layout_height="92dp"
-        android:layout_marginTop="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/wvCard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

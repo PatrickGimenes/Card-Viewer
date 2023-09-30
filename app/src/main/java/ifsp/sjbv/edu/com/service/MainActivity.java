@@ -84,12 +84,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 card = convertJsonToObject(buffer.toString());
 
-                String dados = "Dados da Carta:\nNome: "+card.getName()
+                String dados = "Dados da Carta:"
+                        +"\nNome: "+card.getName()
                         +"\nDescrição: "+card.getDescription()
-                        +"\n: Tipo"+card.getType()
-                        +"\n: Nivel"+card.getLevel()
-                        +"\n: Ataque:"+card.getAtk()
-                        +"\n: Defesa"+card.getDef()
+                        +"\nTipo: "+card.getType()
+                        +"\nNivel: "+card.getLevel()
+                        +"\nAtaque: "+card.getAtk()
+                        +"\nDefesa: "+card.getDef()
                         ;
 
                 return dados;
@@ -127,18 +128,18 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObj = new JSONObject(dados);
             JSONArray array = jsonObj.getJSONArray("data");
             JSONObject objArray = array.getJSONObject(0);
-            card.setName(objArray.getString("name"));
 
+            card.setName(objArray.getString("name"));
             card.setDescription(objArray.getString("desc"));
             card.setLevel(objArray.getInt("level"));
             card.setType(objArray.getString("type"));
             card.setAtk(objArray.getInt("atk"));
             card.setDef(objArray.getInt("def"));
-            card.setImage(objArray.getString("https://images.ygoprodeck.com/images/cards_cropped/46986421.jpg"));
 
+            JSONArray imagesArray = objArray.getJSONArray("card_images");
+            JSONObject firstImage = imagesArray.getJSONObject(0);
 
-
-
+            card.setImage(firstImage.getString("image_url"));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
